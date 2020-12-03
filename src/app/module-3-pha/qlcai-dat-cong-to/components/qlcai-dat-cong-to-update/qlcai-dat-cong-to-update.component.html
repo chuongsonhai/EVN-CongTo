@@ -1,0 +1,65 @@
+
+
+<h3 style="text-align: center;"> Chỉnh Sửa Cấp Phát Tem</h3>
+
+<form [formGroup]="updatefrmAddtenkdv" class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>Điện lực</mat-label>
+    <input matInput formControlName="dienLuc"  required>
+    <mat-icon matSuffix>mode_edit</mat-icon>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Mã Công Tơ</mat-label>
+    <input matInput formControlName="maCongTo"required >
+    <mat-icon matSuffix>mode_edit</mat-icon>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Số Tem</mat-label>
+    <input matInput formControlName="soTem" required>
+    <mat-icon matSuffix>mode_edit</mat-icon>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Mã Kìm</mat-label>
+    <input matInput formControlName="maKim" required>
+    <mat-icon matSuffix>mode_edit</mat-icon>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Số Lần Cài</mat-label>
+    <input matInput formControlName="soLanCai" type="number" required>
+    <mat-icon matSuffix>mode_edit</mat-icon>
+  </mat-form-field>
+  <mat-form-field class="example-full-width" required>
+    <mat-label>Mã KDV</mat-label>
+    <mat-icon matSuffix>mode_edit</mat-icon>
+    <mat-select formControlName="kdV_ID" required>
+      <mat-option *ngFor="let p of danhmuctenKDV" [value]="p.id">{{p.maKDV}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Người Cài</mat-label>
+    <mat-icon matSuffix>mode_edit</mat-icon>
+    <mat-select formControlName="nguoiCai" required>
+      <mat-option *ngFor="let p of danhmuctenKDV" [value]="p.id">{{p.tenDayDu}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Ngày Cài</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="ngay_Cai" required>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Ghi chú</mat-label>
+    <textarea matInput  formControlName="ghiChu" required></textarea>
+  </mat-form-field>
+  <section>
+    <div class="example-button-row">
+      <button mat-raised-button [disabled]="!updatefrmAddtenkdv.valid" (click)="confirmAdd()"
+        [mat-dialog-close]="1">Save</button>
+
+
+      <button (click)="onNoClick()" mat-raised-button>Cancel</button>
+    </div>
+  </section>
+</form>

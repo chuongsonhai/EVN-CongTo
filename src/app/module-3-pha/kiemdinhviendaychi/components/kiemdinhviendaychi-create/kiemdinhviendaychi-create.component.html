@@ -1,0 +1,51 @@
+<h3 style="text-align: center;"> Tạo Mới quản lý Chì</h3>
+
+<form [formGroup]="frmAdddaychikdv" class="example-form">
+
+  <mat-form-field class="example-full-width">
+    <mat-label>số Lượng</mat-label>
+    <input matInput formControlName="soLuong" type="number" required>
+    <mat-icon matSuffix>mode_edit</mat-icon>
+  </mat-form-field>
+ 
+
+  
+  <mat-form-field class="example-full-width">
+    <mat-label>Loại Dây Chì Hủy</mat-label>
+    <input matInput formControlName="loaiDayChi_Huy"required >
+    <mat-icon matSuffix>mode_edit</mat-icon>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Số Lượng Dây Chì Hủy</mat-label>
+    <input matInput formControlName="soLuong_Huy"type="number"required >
+    <mat-icon matSuffix>mode_edit</mat-icon>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Tên KDV</mat-label>
+    <mat-icon matSuffix>mode_edit</mat-icon>
+    <mat-select formControlName="kdV_ID" required>
+      <mat-option *ngFor="let p of danhmuctenKDV" [value]="p.id">{{p.tenDayDu}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Loại Dây Chì</mat-label>
+    <mat-icon matSuffix>mode_edit</mat-icon>
+    <mat-select formControlName="daychi_ID" required>
+      <mat-option *ngFor="let p of danhmucdaychi" [value]="p.id">{{p.loai_DayChi}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Ngày tạo</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="ngay_Su_Dung" required>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <section>
+    <div class="example-button-row">
+      <button mat-raised-button [disabled]="!frmAdddaychikdv.valid" (click)="confirmAdd()"
+        [mat-dialog-close]="1">Save</button>
+      <button (click)="onNoClick()" mat-raised-button>Cancel</button>
+    </div>
+  </section>
+</form>

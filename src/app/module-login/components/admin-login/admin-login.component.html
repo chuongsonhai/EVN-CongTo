@@ -1,0 +1,37 @@
+<html class="container">
+<!-- <html  [ngStyle]="{backgroundImage:'url(assets/EVN.jpg'}" > -->
+<mat-toolbar>
+  <span>
+    <img style="width:273px" [src]="productExample.imgurl">
+  </span>
+  <span style="padding-left: 65px;"> <span style="color: red;">Tổng công ty điện lực thành phố Hà Nội</span><br> Hệ
+    thống điều khiển thiết bị kiểm định và quản lý công tác kiểm định phương tiện đo </span>
+
+</mat-toolbar>
+<mat-card style="
+width: 391px;
+left: 463px;
+top:135px;
+">
+
+  <form  [formGroup]="LoginForm" class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Tài Khoản</mat-label>
+      <input matInput placeholder="" formControlName="tenDangNhap"  >
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Mật khẩu </mat-label>
+      <input matInput placeholder="" type="password" formControlName="matKhau">
+    </mat-form-field>
+  
+
+
+  <button mat-raised-button (click)="login()"
+  >login</button>
+  <!-- <button mat-raised-button [routerLink]="['']" routerLinkActive="router-link-active" 
+  >next</button> -->
+</form>
+</mat-card>
+
+</html>

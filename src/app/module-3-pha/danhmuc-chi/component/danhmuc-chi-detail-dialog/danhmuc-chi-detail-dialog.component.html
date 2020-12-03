@@ -1,0 +1,27 @@
+<div class="container">
+    <h2 style="text-align: center;">{{IsNew ? 'TẠO MỚI' : 'CHỈNH SỬA'}} Danh Mục Chì</h2>
+    <div *ngIf="error">
+        {{error}}
+    </div>
+    <div fxLayout="column" fxLayoutAlign="center">
+        <form [formGroup]="theForm" (submit)="save()" autocomplete="off">
+            <div class="form">
+                <mat-form-field appearance="fill" fxFlex="100%">
+                    <mat-label>Mã Chì</mat-label>
+                    <input matInput formControlName="ma_Chi">
+                </mat-form-field>
+                <mat-form-field appearance="fill" fxFlex="100%">
+                    <mat-label>Loại Chì</mat-label>
+                    <input matInput formControlName="loai_Chi">
+                </mat-form-field>
+            </div>
+            <div mat-dialog-actions class="form">
+                <button mat-raised-button type="submit" [disabled]="theForm.invalid || IsSaving">
+                    <mat-icon arial-label="Save all">save</mat-icon>Lưu</button>
+
+                <button mat-raised-button type="button" (click)="cancel()">
+                    <mat-icon arial-label="Exit">exit_to_app</mat-icon>Hủy</button>
+            </div>
+        </form>
+    </div>
+</div>

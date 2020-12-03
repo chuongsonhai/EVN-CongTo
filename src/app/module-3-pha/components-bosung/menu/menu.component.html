@@ -1,0 +1,193 @@
+<!-- <div style="padding-top: 20%;" >
+<p  >
+<button mat-button [matMenuTriggerFor]="danhmucquanly"> <mat-icon>account_balance_wallet</mat-icon>Quản Trị Hệ Thống</button>
+<mat-menu #danhmucquanly="matMenu">
+
+  <button mat-menu-item [matMenuTriggerFor]="danhmucsudung">Danh Mục</button>
+  <button mat-menu-item [matMenuTriggerFor]="kiemdinhvien">Kiểm Định Viên</button>
+  <button mat-menu-item [routerLink]="['/dangkitemchi']" routerLinkActive="router-link-active" >Đăng Kí Tem Chì</button>
+
+</mat-menu>
+</p>
+<mat-menu #congtacquanly="matMenu">
+  <button mat-menu-item [routerLink]="['/kdv-tem']" routerLinkActive="router-link-active" >Kiểm Định Viên Sử Dụng Tem</button>
+  <button mat-menu-item [routerLink]="['/kdv-chi']" routerLinkActive="router-link-active" >Kiểm Định Viên Sử Dụng Chì</button>
+  <button mat-menu-item [routerLink]="['/kdv-daychi']" routerLinkActive="router-link-active">Kiểm Định Viên Sử Dụng Dây Chì</button>
+</mat-menu>
+<mat-menu #congtacquanlycapphat="matMenu">
+  <button mat-menu-item [routerLink]="['/nql-tem']" routerLinkActive="router-link-active" >Cấp Phát Sử Dụng Tem</button>
+  <button mat-menu-item [routerLink]="['/nql-chi']" routerLinkActive="router-link-active" >Cấp Phát Sử Dụng Chì</button>
+  <button mat-menu-item [routerLink]="['/nql-daychi']" routerLinkActive="router-link-active"> Cấp Phát Sử Dụng Dây Chì</button>
+
+</mat-menu>
+
+<mat-menu #congtacquanlysoluongton="matMenu">
+  <button mat-menu-item [routerLink]="['/slt-tem']" routerLinkActive="router-link-active" >Tem</button>
+  <button mat-menu-item [routerLink]="['/slt-chi']"   routerLinkActive="router-link-active">Chì</button>
+  <button mat-menu-item [routerLink]="['/slt-daychi']" routerLinkActive="router-link-active" >Dây Chì</button>
+
+
+</mat-menu>
+<mat-menu #danhmucsudung="matMenu">
+  <button mat-menu-item [routerLink]="['/danhmuc-tem/']" routerLinkActive="router-link-active" >Tem</button>
+  <button mat-menu-item [routerLink]="['/danhmuc-chi/']"   routerLinkActive="router-link-active">Chì</button>
+  <button mat-menu-item [routerLink]="['danhmuc-daychi/']" routerLinkActive="router-link-active" >Dây Chì</button>
+</mat-menu>
+
+
+
+
+
+
+
+<p>
+<button  mat-button [routerLink]="['/qlcaidatcongto/']" routerLinkActive="router-link-active">
+  <mat-icon>assignment</mat-icon> QLCĐ Công Tơ Điện Tử</button>
+</p>
+
+<p>
+<button   mat-button [matMenuTriggerFor]="menu">
+  <mat-icon>assignment</mat-icon> QLCT SD Tem,Chì,Dây chì</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item [matMenuTriggerFor]="congtacquanly">Công Tác Quản Lý Kiểm Định Viên</button>
+    <button mat-menu-item [matMenuTriggerFor]="congtacquanlycapphat">Công Tác Quản Lý Cấp Phát</button>
+    <button mat-menu-item [matMenuTriggerFor]="congtacquanlysoluongton">Quản Lý Số Lượng Tồn</button>
+</mat-menu>
+</p>
+
+<mat-menu #kiemdinhvien="matMenu">
+  <button mat-menu-item [routerLink]="['/danhmuc-ten-kdv']" routerLinkActive="router-link-active">Quản Lý Kiểm Định Viên</button>
+</mat-menu>
+
+
+</div> -->
+
+<div>
+<mat-accordion style="width: 100%;">
+  <mat-expansion-panel  hideToggle>
+    <mat-expansion-panel-header>
+       <mat-icon>account_balance_wallet</mat-icon> Quản Trị Hệ Thống
+    </mat-expansion-panel-header>
+
+    <mat-accordion style="width: 100%;">
+      <mat-expansion-panel hideToggle >
+        <mat-expansion-panel-header>
+          <mat-icon>assignment</mat-icon>Danh Mục
+        </mat-expansion-panel-header>
+        <button mat-menu-item [routerLink]="['/danhmuc-tem/']" routerLinkActive="router-link-active" >Tem</button>
+        <button mat-menu-item [routerLink]="['/danhmuc-chi/']"   routerLinkActive="router-link-active">Chì</button>
+        <button mat-menu-item [routerLink]="['danhmuc-daychi/']" routerLinkActive="router-link-active" >Dây Chì</button>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+    <mat-accordion>
+      <mat-expansion-panel hideToggle >
+        <mat-expansion-panel-header>
+          <mat-icon>assignment_ind</mat-icon> Kiểm Định Viên
+        </mat-expansion-panel-header>
+        <button mat-menu-item [routerLink]="['/danhmuc-ten-kdv']" routerLinkActive="router-link-active">Danh Sách</button>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+    <mat-accordion>
+      <mat-expansion-panel hideToggle >
+        <mat-expansion-panel-header>
+        	<mat-icon>assignment_turned_in</mat-icon>ĐK Tem Chì
+        </mat-expansion-panel-header>
+      <button mat-menu-item [routerLink]="['/dangkitemchi']" routerLinkActive="router-link-active" >DS Đăng Kí</button>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </mat-expansion-panel>
+</mat-accordion>
+</div>
+
+<mat-accordion>
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+      <mat-icon> rate_review</mat-icon>QLSD Tem,Chì,Dây chì
+    </mat-expansion-panel-header>
+  
+    <mat-accordion>
+      <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+          <mat-icon>event_note</mat-icon> Sử Dụng
+        </mat-expansion-panel-header>      
+        <button mat-menu-item [routerLink]="['/kdv-tem']" routerLinkActive="router-link-active" > Tem</button>
+        <button mat-menu-item [routerLink]="['/kdv-chi']" routerLinkActive="router-link-active" >Chì</button>
+        <button mat-menu-item [routerLink]="['/kdv-daychi']" routerLinkActive="router-link-active">Dây Chì</button>      
+     </mat-expansion-panel>
+    </mat-accordion>
+    <mat-accordion>
+      <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+          <mat-icon>event_available</mat-icon> Cấp Phát
+        </mat-expansion-panel-header>      
+        <button mat-menu-item [routerLink]="['/nql-tem']" routerLinkActive="router-link-active" > Tem</button>
+        <button mat-menu-item [routerLink]="['/nql-chi']" routerLinkActive="router-link-active" >Chì</button>
+        <button mat-menu-item [routerLink]="['/nql-daychi']" routerLinkActive="router-link-active"> Dây Chì</button>
+       </mat-expansion-panel>
+    </mat-accordion>
+    <mat-accordion>
+      <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+        	<mat-icon>event_busy</mat-icon> Số Lượng Tồn
+        </mat-expansion-panel-header>      
+        <button mat-menu-item [routerLink]="['/slt-tem']" routerLinkActive="router-link-active" >Tem</button>
+        <button mat-menu-item [routerLink]="['/slt-chi']"   routerLinkActive="router-link-active">Chì</button>
+        <button mat-menu-item [routerLink]="['/slt-daychi']" routerLinkActive="router-link-active" >Dây Chì</button>
+       </mat-expansion-panel>
+    </mat-accordion>
+
+
+
+  </mat-expansion-panel>
+</mat-accordion>
+
+<mat-accordion>
+  <mat-expansion-panel hideToggle >
+    <mat-expansion-panel-header>
+      <mat-icon>assignment_returned</mat-icon> QLCĐ Công Tơ Điện Tử
+    </mat-expansion-panel-header>
+    <button  mat-button [routerLink]="['/qlcaidatcongto/']" routerLinkActive="router-link-active">
+     Danh Sách</button>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<mat-accordion>
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+      <mat-icon>assessment</mat-icon>QL Xuất Nhập PT Đo
+    </mat-expansion-panel-header>
+    <p>This is the primary content of the panel.</p>
+  </mat-expansion-panel>
+</mat-accordion>
+
+
+<mat-accordion>
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+      <mat-icon>calendar_today</mat-icon> QLKQ Kiểm Định
+    </mat-expansion-panel-header>
+    <p>This is the primary content of the panel.</p>
+  </mat-expansion-panel>
+</mat-accordion>
+
+
+<mat-accordion>
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+      <mat-icon>compare_arrows</mat-icon> Đồng Bộ Dữ Liệu CMIS
+    </mat-expansion-panel-header>
+    <p>This is the primary content of the panel.</p>
+  </mat-expansion-panel>
+</mat-accordion>
+
+
+<mat-accordion>
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+      <mat-icon>date_range</mat-icon>Báo Cáo
+    </mat-expansion-panel-header>
+    <p>This is the primary content of the panel.</p>
+  </mat-expansion-panel>
+</mat-accordion>

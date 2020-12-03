@@ -1,0 +1,51 @@
+
+
+<h3 style="text-align: center;"> Chỉnh Sửa Cấp Phát Tem</h3>
+
+<form [formGroup]="updatefrmAddtenkdv" class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>Số Lượng Tem</mat-label>
+    <input matInput formControlName="soLuong" type="number" required>
+    <mat-icon matSuffix>mode_edit</mat-icon>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Seri Đầu</mat-label>
+    <input matInput formControlName="seri_Dau"required >
+    <mat-icon matSuffix>mode_edit</mat-icon>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Seri Cuối</mat-label>
+    <input matInput formControlName="seri_Cuoi" required>
+    <mat-icon matSuffix>mode_edit</mat-icon>
+  </mat-form-field>
+  <mat-form-field class="example-full-width" required>
+    <mat-label>Tên KDV</mat-label>
+    <mat-icon matSuffix>mode_edit</mat-icon>
+    <mat-select formControlName="kdV_ID" required>
+      <mat-option *ngFor="let p of danhmuctenKDV" [value]="p.id">{{p.tenDayDu}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Loại Tem</mat-label>
+    <mat-icon matSuffix>mode_edit</mat-icon>
+    <mat-select formControlName="tem_ID" required>
+      <mat-option *ngFor="let p of danhmucdaychi" [value]="p.id">{{p.loai_Tem}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Ngày Cấp Phát</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="ngay_Cap_Phat" required>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <section>
+    <div class="example-button-row">
+      <button mat-raised-button [disabled]="!updatefrmAddtenkdv.valid" (click)="confirmAdd()"
+        [mat-dialog-close]="1">Save</button>
+
+
+      <button (click)="onNoClick()" mat-raised-button>Cancel</button>
+    </div>
+  </section>
+</form>

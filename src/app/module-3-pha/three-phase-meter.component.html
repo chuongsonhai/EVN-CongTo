@@ -1,0 +1,96 @@
+<!-- <mat-toolbar color='primary' style="padding-left: 0px" >
+    <img style="height: 70px;" [src] = "productExample.imgurl">
+     <span style="padding-left: 60px; " ><span style="color: red" >Tổng công ty điện lực thành phố Hà Nội</span> <br>Hệ thống điều khiển thiết bị đo kiểm định công tơ
+     </span>
+     <span style="padding-left: 220px;">Công Tơ 3 pha</span>
+    <span class="example-spacer"></span>
+        <div class="example-button-row">
+          <button [routerLink]="['']" routerLinkActive="router-link-active"  mat-flat-button color="primary">Đăng Xuất</button>
+        </div>
+  </mat-toolbar>
+  
+  <mat-drawer-container class="example-container">
+    <mat-drawer mode="side" opened style="padding-top: 100px;"><app-menu></app-menu></mat-drawer>
+    <mat-drawer-content><router-outlet></router-outlet></mat-drawer-content>
+  </mat-drawer-container> -->
+
+<!--  
+  <mat-drawer-container class="example-container">
+    <mat-drawer mode="side" opened style="width:18%" >
+      <p style="text-align: center;"> <img style="height: 100%; width:100%" [src] = "productExample.imgurl"></p>
+       <app-menu></app-menu>
+    </mat-drawer>
+    <mat-drawer-content style="background-color: rgba(237, 236, 241, 0.952);" >
+ 
+      <p>
+        <mat-toolbar color="basic">
+        <span><span style="font-size:large;color: red;" >TỔNG CÔNG TY ĐIỆN LỰC TP.HÀ NỘI</span><br><span style="font-size: x-large;color: blue;" >HỆ THỐNG ĐIỀU KHIỂN THIẾT BỊ ĐO KIỂM ĐỊNH CÔNG TƠ</span> </span>
+        <span class="example-spacer"></span>
+        <span> 
+
+          <button mat-button [matMenuTriggerFor]="danhmucquanly"><mat-icon>account_box</mat-icon>{{tendangnhap}}</button>
+          <mat-menu #danhmucquanly="matMenu">
+            <button mat-menu-item (click)= "logout()" > <mat-icon>exit_to_app</mat-icon>Đăng xuất</button>
+          </mat-menu>
+        </span>
+      </mat-toolbar>
+      </p>
+      <router-outlet></router-outlet>
+    </mat-drawer-content>
+  </mat-drawer-container>
+  
+  -->
+
+<!-- test -->
+
+<mat-sidenav-container fullscreen>
+  <!-- <p>
+        <mat-toolbar color="basic">
+        <span><span style="font-size:large;color: red;" >TỔNG CÔNG TY ĐIỆN LỰC TP.HÀ NỘI</span><br><span style="font-size: x-large;color: blue;" >HỆ THỐNG ĐIỀU KHIỂN THIẾT BỊ ĐO KIỂM ĐỊNH CÔNG TƠ</span> </span>
+        <span class="example-spacer"></span>
+        <span> 
+
+          <button mat-button [matMenuTriggerFor]="danhmucquanly"><mat-icon>account_box</mat-icon>{{tendangnhap}}</button>
+          <mat-menu #danhmucquanly="matMenu">
+            <button mat-menu-item (click)= "logout()" > <mat-icon>exit_to_app</mat-icon>Đăng xuất</button>
+          </mat-menu>
+        </span>
+      </mat-toolbar>
+      </p> -->
+
+  <mat-sidenav #sidenav style="width: 240px;" mode="side" opened class="sw-sidenav">
+    <mat-list>
+      <img style="height: 85px;" [src]="productExample.imgurl">
+      <app-menu></app-menu>
+    </mat-list>
+  </mat-sidenav>
+
+  <mat-toolbar  >
+    <button type="button" mat-icon-button (click)="sidenav.toggle() " title="Open sidenav">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span><span style="font-size:large;color: red;">TỔNG CÔNG TY ĐIỆN LỰC TP.HÀ NỘI</span><br><span
+        style="font-size: x-large;color: blue;">HỆ THỐNG ĐIỀU KHIỂN THIẾT BỊ ĐO KIỂM ĐỊNH CÔNG TƠ</span> </span>
+    <span class="example-spacer"></span>
+    <span>
+
+      <button mat-button [matMenuTriggerFor]="danhmucquanly">
+        <mat-icon>account_box</mat-icon>{{tendangnhap}}
+      </button>
+      <mat-menu #danhmucquanly="matMenu">
+        <button mat-menu-item (click)="logout()">
+          <mat-icon>exit_to_app</mat-icon>Đăng xuất
+        </button>
+      </mat-menu>
+    </span>
+  </mat-toolbar>
+  <div class="content" #main>
+
+
+    <router-outlet></router-outlet>
+  </div>
+
+
+
+
+</mat-sidenav-container>

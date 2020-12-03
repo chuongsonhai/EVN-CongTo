@@ -1,0 +1,31 @@
+
+<h3 style="text-align: center;">Chỉnh sửa thông tin</h3>
+ 
+<form class="example-form" [formGroup]="frmAddtenkdv">
+ 
+   <mat-form-field class="example-full-width">
+     <mat-label>Tên Kiểm Định Viên</mat-label>
+     <input matInput  formControlName="tenDayDu" required>
+     <mat-icon matSuffix>mode_edit</mat-icon>
+   </mat-form-field>
+   <mat-form-field class="example-full-width">
+     <mat-label>Mã KDV</mat-label>
+     <input matInput  formControlName="maKDV" required>
+     <mat-icon matSuffix>mode_edit</mat-icon>
+   </mat-form-field>
+    
+   <mat-form-field class="example-full-width">
+    <mat-label>Chức Vụ</mat-label>
+    <mat-icon matSuffix>mode_edit</mat-icon>
+    <mat-select formControlName="laQuanLy" required> 
+      <mat-option [value] = "1">Kiểm Định Viên </mat-option>
+      <mat-option [value] = "0">Quản Lý</mat-option>
+    </mat-select>
+  </mat-form-field>
+ <section>
+   <div class="example-button-row">
+     <button  mat-raised-button [mat-dialog-close]="1" (click)="confirmUpdate()">Save</button>
+     <button  mat-raised-button (click)="onNoClick()" tabindex="-1" >Cancel</button>
+   </div>
+ </section>
+ </form>

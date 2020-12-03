@@ -1,0 +1,78 @@
+
+<h3 style="text-align: center;"> Chỉnh Sửa Cấp Phát Tem</h3>
+
+<form [formGroup]="dangkitemchi" class="example-form">
+
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Năm</mat-label>
+        <input matInput formControlName="nam" type="number" required>
+        <mat-icon matSuffix>mode_edit</mat-icon>
+      </mat-form-field>
+      
+      <mat-form-field class="example-full-width">
+        <mat-label>Tên Đăng Kí</mat-label>
+        <mat-icon matSuffix>mode_edit</mat-icon>
+        <mat-select formControlName="ten_DKy" required>
+          <mat-option *ngFor="let p of danhmucTem" [value]="p.loai_Tem">{{p.loai_Tem}}</mat-option>
+          <mat-option *ngFor="let p of danhmucchi" [value]="p.loai_Chi">{{p.loai_Chi}}</mat-option>
+          <mat-option *ngFor="let p of danhmucdaychi" [value]="p.loai_DayChi">{{p.loai_DayChi}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    
+      <mat-form-field class="example-full-width">
+        <mat-label>Số Lượng Đăng Kí</mat-label>
+        <mat-icon matSuffix>mode_edit</mat-icon>
+        <input matInput formControlName="soLuong_Dky" type="number" required>
+      </mat-form-field>
+    
+      <mat-form-field class="example-full-width">
+        <mat-label>Người Đăng Kí</mat-label>
+        <mat-icon matSuffix>mode_edit</mat-icon>
+        <mat-select formControlName="id_NguoiDKy" required>
+          <mat-option *ngFor="let p of danhmuctenKDV" [value]="p.id">{{p.tenDayDu}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    
+      <mat-form-field class="example-full-width">
+        <mat-label>Người Duyệt</mat-label>
+        <mat-icon matSuffix>mode_edit</mat-icon>
+        <mat-select formControlName="id_NguoiDuyet" required>
+          <mat-option *ngFor="let p of danhmuctenKDV" [value]="p.id">{{p.tenDayDu}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    
+    
+      <mat-form-field class="example-full-width">
+        <mat-label>Trạng Thái Duyệt</mat-label>
+        <mat-icon matSuffix>mode_edit</mat-icon>
+        <mat-select formControlName="trangThaiDuyet"   type="number" required>
+            <mat-option [value] = "1">Đã duyệt</mat-option>
+            <mat-option [value] = "0">Chưa duyệt</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Cấp Duyệt</mat-label>
+        <mat-icon matSuffix>mode_edit</mat-icon>
+        <mat-select formControlName="capDuyet" type="number" required>
+            <mat-option [value] = "1">Cấp Trung tâm</mat-option>
+            <mat-option [value] = "0">Cấp Công ty</mat-option>
+        </mat-select>
+      </mat-form-field>
+    
+      <mat-form-field appearance="fill">
+        <mat-label>Thời Gian Duyệt</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="thoiGianDuyet" required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+  <section>
+    <div class="example-button-row">
+      <button mat-raised-button [disabled]="!dangkitemchi.valid" (click)="confirmAdd()"
+        [mat-dialog-close]="1">Save</button>
+
+
+      <button (click)="onNoClick()" mat-raised-button>Cancel</button>
+    </div>
+  </section>
+</form>

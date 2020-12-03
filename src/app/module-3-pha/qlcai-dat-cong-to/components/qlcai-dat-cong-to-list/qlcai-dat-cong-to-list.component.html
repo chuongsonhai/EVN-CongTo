@@ -1,0 +1,93 @@
+
+<p>
+    <mat-toolbar color="primary" style="height: 40px;">
+        <span>Công Tác Quản Lý Cài Đặt Công Tơ Điện Tử</span>
+        <span class="example-spacer"></span>
+        <div class="example-button-container">
+            <button mat-fab color="warn" (click)="addNew(null)" aria-label="Example icon button with a home icon">
+                <mat-icon>add</mat-icon>
+
+            </button>
+        </div>
+    </mat-toolbar>
+</p>
+<div>
+    <mat-form-field>
+        <mat-label><mat-icon>find_replace</mat-icon>
+            Tìm kiếm
+        </mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="" #input>
+    </mat-form-field>
+</div>
+
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+        <!-- ID Column -->
+        <ng-container matColumnDef="no">
+            <th mat-header-cell *matHeaderCellDef   > STT </th>
+            <td mat-cell *matCellDef="let i=index"> {{i+1}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="dienLuc">
+            <th mat-header-cell *matHeaderCellDef >Điện Lực </th>
+            <td mat-cell *matCellDef="let row"> {{row.dienLuc}} </td>
+        </ng-container>
+        <ng-container matColumnDef="maCongTo">
+            <th mat-header-cell *matHeaderCellDef > Mã Công Tơ </th>
+            <td mat-cell *matCellDef="let row"> {{row.maCongTo}} </td>
+        </ng-container>
+ 
+        <ng-container matColumnDef="ngay_Cai">
+            <th mat-header-cell *matHeaderCellDef > Ngày Cài  </th>
+            <td mat-cell *matCellDef="let row"> {{row.ngay_Cai | date:'dd/MM/yyyy'}} </td>
+        </ng-container>
+        <ng-container matColumnDef="maKDV_Name">
+            <th mat-header-cell *matHeaderCellDef > Mã KDV </th>
+            <td mat-cell *matCellDef="let row"> {{row.maKDV_Name}} </td>
+        </ng-container>
+        <ng-container matColumnDef="nguoiCai_Name">
+            <th mat-header-cell *matHeaderCellDef > Người Cài </th>
+            <td mat-cell *matCellDef="let row"> {{row.nguoiCai_Name}} </td>
+        </ng-container>
+        <ng-container matColumnDef="soTem">
+            <th mat-header-cell *matHeaderCellDef > Số Tem </th>
+            <td mat-cell *matCellDef="let row"> {{row.soTem}} </td>
+        </ng-container>
+        <ng-container matColumnDef="maKim">
+            <th mat-header-cell *matHeaderCellDef > Mã Kìm </th>
+            <td mat-cell *matCellDef="let row"> {{row.maKim}} </td>
+        </ng-container>
+        <ng-container matColumnDef="soLanCai">
+            <th mat-header-cell *matHeaderCellDef > Số Lần Cài </th>
+            <td mat-cell *matCellDef="let row"> {{row.soLanCai}} </td>
+        </ng-container>
+        <ng-container matColumnDef="ghiChu">
+            <th mat-header-cell *matHeaderCellDef > Ghi Chú </th>
+            <td mat-cell *matCellDef="let row"> {{row.ghiChu}} </td>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>Tác Vụ</th>
+            <td mat-cell *matCellDef="let row; let i=index;">
+                <button mat-raised-button color="primary" (click)="startEdit(row.id)">
+                    <mat-icon>edit</mat-icon>sửa
+                </button>
+                <button mat-raised-button color="warn" (click)="deleteItem(row.id)">
+                    <mat-icon>delete</mat-icon>xóa
+                </button>
+
+            </td>
+        </ng-container>
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">Không có dữ liệu tìm kiếm với từ khóa "{{input.value}}"</td>
+        </tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[2, 5, 10, 25, 100]" [pageSize]="pageSize" >
+    </mat-paginator>
+</div>

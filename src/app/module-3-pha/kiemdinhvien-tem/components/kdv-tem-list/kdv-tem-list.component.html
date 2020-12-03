@@ -1,0 +1,87 @@
+
+<p>
+    <mat-toolbar color="primary" style="height: 40px;">
+        <span>Sử Dụng Tem</span>
+        <span class="example-spacer"></span>
+        <div class="example-button-container">
+            <button mat-fab color="warn" (click)="addNew(null)" aria-label="Example icon button with a home icon">
+                <mat-icon>add</mat-icon>
+
+            </button>
+        </div>
+    </mat-toolbar>
+</p>
+<div>
+    <mat-form-field>
+        <mat-label><mat-icon>find_replace</mat-icon>
+            Tìm kiếm
+        </mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="" #input>
+    </mat-form-field>
+</div>
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+        <!-- ID Column -->
+        <ng-container matColumnDef="no">
+            <th mat-header-cell *matHeaderCellDef   > STT </th>
+            <td mat-cell *matCellDef="let i=index"> {{i+1}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="ngay_Su_Dung">
+            <th mat-header-cell *matHeaderCellDef > Ngày Sử Dụng </th>
+            <td mat-cell *matCellDef="let row"> {{row.ngay_Su_Dung | date:'dd/MM/yyyy'}} </td>
+        </ng-container>
+        <ng-container matColumnDef="soLuong">
+            <th mat-header-cell *matHeaderCellDef > Số Lượng </th>
+            <td mat-cell *matCellDef="let row"> {{row.soLuong}} </td>
+        </ng-container>
+        <ng-container matColumnDef="tenKDV_name">
+            <th mat-header-cell *matHeaderCellDef >Tên KDV</th>
+            <td mat-cell *matCellDef="let row"> {{row.tenKDV_name}} </td>
+        </ng-container>
+        <ng-container matColumnDef="loaiTem_name">
+            <th mat-header-cell *matHeaderCellDef >Loại Tem</th>
+            <td mat-cell *matCellDef="let row"> {{row.loaiTem_name}} </td>
+        </ng-container>
+        <ng-container matColumnDef="seri_Dau">
+            <th mat-header-cell *matHeaderCellDef >Seri Đầu </th>
+            <td mat-cell *matCellDef="let row"> {{row.seri_Dau}} </td>
+        </ng-container>
+        <ng-container matColumnDef="seri_Cuoi">
+            <th mat-header-cell *matHeaderCellDef >Seri Cuối</th>
+            <td mat-cell *matCellDef="let row"> {{row.seri_Cuoi}} </td>
+        </ng-container>
+        <ng-container matColumnDef="soLuong_Huy">
+            <th mat-header-cell *matHeaderCellDef >Số Lượng Hủy </th>
+            <td mat-cell *matCellDef="let row"> {{row.soLuong_Huy}} </td>
+        </ng-container>
+        <ng-container matColumnDef="seri_Tem_Huy">
+            <th mat-header-cell *matHeaderCellDef >Seri Tem Hủy </th>
+            <td mat-cell *matCellDef="let row"> {{row.seri_Tem_Huy}} </td>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>Tác Vụ</th>
+            <td mat-cell *matCellDef="let row; let i=index;">
+                <button mat-raised-button color="primary" (click)="startEdit(row.id)">
+                    <mat-icon>edit</mat-icon>sửa
+                </button>
+                <button mat-raised-button color="warn" (click)="deleteItem(row.id)">
+                    <mat-icon>delete</mat-icon>xóa
+                </button>
+
+            </td>
+        </ng-container>
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">Không có dữ liệu tìm kiếm với từ khóa "{{input.value}}"</td>
+        </tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[2, 5, 10, 25, 100]" [pageSize]="pageSize" >
+    </mat-paginator>
+</div>

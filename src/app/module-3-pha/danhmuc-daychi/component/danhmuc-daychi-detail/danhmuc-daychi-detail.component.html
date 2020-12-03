@@ -1,0 +1,24 @@
+<h3>{{IsNew ? 'Tao moi' : 'chinh sua'}} Dây chì</h3>
+<div *ngIf="error">
+    {{error}}
+</div>
+<form [formGroup] = "theForm" (submit)="save()">
+    <div class="example-container">
+        <mat-form-field appearance="fill" >
+          <mat-label>Mã Chì</mat-label>
+          <input matInput formControlName="ma_Chi">
+        </mat-form-field>
+      <br> 
+       <mat-form-field appearance="fill" >
+          <mat-label>Loại Chì</mat-label>
+          <input matInput formControlName="loai_Chi">
+        </mat-form-field>
+        
+        
+        <br>
+        
+      </div>
+      <button mat-raised-button type="button" (click)="cancel()">huy</button>
+      <button mat-raised-button type="submit" [disabled] = "theForm.invalid || IsSaving">save</button>
+
+    </form>

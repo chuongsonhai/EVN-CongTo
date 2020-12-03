@@ -1,0 +1,6 @@
+<p>Bạn có chắc chắn xóa không ?</p>
+
+<div mat-dialog-actions class="card-button">
+    <button mat-raised-button color="warn" [mat-dialog-close]="1" (click)="confirmDelete()">Xóa</button>
+    <button mat-raised-button color="basic" (click)="onNoClick()" tabindex="-1">Trở lại</button>
+</div>

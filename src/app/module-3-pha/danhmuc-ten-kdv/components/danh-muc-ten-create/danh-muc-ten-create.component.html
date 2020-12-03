@@ -1,0 +1,59 @@
+<!-- <h3 style="text-align: center;"> Tạo Mới Kiểm Định Viên</h3>
+
+<form [formGroup]="frmAddchikdv" class="example-form">
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Tên Kiểm Định Viên</mat-label>
+    <input matInput formControlName="ten_KDV">
+    <mat-icon matSuffix>mode_edit</mat-icon>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Chức Vụ </mat-label>
+    <mat-icon matSuffix>mode_edit</mat-icon>
+    <mat-select formControlName="laQuanLy">
+      <mat-option [value] = "1">Quản lý</mat-option>
+      <mat-option [value] = "0">Kiểm Định Viên</mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+  <section>
+    <div class="example-button-row">
+      <button mat-raised-button [disabled]="!frmAddtenkdv.valid" (click)="confirmAdd()"
+        [mat-dialog-close]="1">Save</button>
+      <button (click)="onNoClick()" mat-raised-button>Cancel</button>
+    </div>
+  </section>
+</form> -->
+
+
+<div class="container">
+  <h3 mat-dialog-title  fxLayoutAlign="center">Tạo Mới Kiểm Định Viên</h3>
+  <div fxLayout="column" fxLayoutAlign="center">
+      <form [formGroup]="frmAddDepartment" autocomplete="off">
+          <div class="form">
+              <mat-form-field fxFlex="50%">
+                  <input matInput placeholder="Tên Kiểm Định Viên" formControlName="tenDayDu" required>
+              </mat-form-field>
+              <mat-form-field fxFlex="50%">
+                  <input matInput placeholder="Mã KDV" formControlName="maKDV" required>
+              </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <mat-label>Chức Vụ </mat-label>
+                <mat-icon matSuffix>mode_edit</mat-icon>
+                <mat-select formControlName="laQuanLy" required>
+                  <mat-option [value] = "1">Quản lý</mat-option>
+                  <mat-option [value] = "0">Kiểm Định Viên</mat-option>
+                </mat-select>
+              </mat-form-field>
+          </div>
+          <div mat-dialog-actions class="form">
+            <button mat-raised-button color="primary" [disabled]="!frmAddDepartment.valid"
+                (click)="confirmAdd()" [mat-dialog-close]="1">
+                <mat-icon aria-label="Save all">save</mat-icon> Save</button>
+              <button mat-button (click)="onNoClick()" tabindex="-1">
+                  <mat-icon aria-label="Exit">exit_to_app</mat-icon> Exit
+              </button>
+          </div>
+      </form>
+  </div>
+</div>
